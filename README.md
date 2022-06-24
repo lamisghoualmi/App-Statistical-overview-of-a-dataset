@@ -4,4 +4,5 @@ Data analysis follows a rigorous step-by-step process in order to make
         of the data before starting the analysis. This app helps you get
         a clear vision of what steps should you take to clean your data. 
         Such as the necessity of removing duplicates, missing values, outliers, 
-        etc.
+        etc. Interested to see my App, here is the link 
+        https://lamisghoualmi-app-statistics-overview-of-dataoverviewapp-qu26lc.streamlitapp.com/
