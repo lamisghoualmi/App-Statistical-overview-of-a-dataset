@@ -42,7 +42,7 @@ try:
     
     
                 
-    if option=='View of the data': 
+    if option=='View of the data' and uploaded_file is not None: 
      st.caption('View of the data.')
      st.write(df)
     
