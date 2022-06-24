@@ -86,7 +86,7 @@ try:
         
     if option=='Summarization of the data (Numerical variables)': 
         try:
-         st.caption('Summarization of the data:')
+         st.caption('Summarization of the data (Numerical variables)')
          st.write(df.describe())
         except:
          st.write( 'This dataset does not contain numerical variables')
