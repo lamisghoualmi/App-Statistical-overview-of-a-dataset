@@ -27,20 +27,18 @@ st.sidebar.write("""
 uploaded_file=st.file_uploader("Choose a dataset (CSV file)", type=['csv'] , accept_multiple_files=False, key=None, 
                                help=None ,
                                on_change=None, args=None, kwargs=None, disabled=False)
-try:
-    if uploaded_file is not None:
-         df = pd.read_csv(uploaded_file)
-         
-       
-    option=st.selectbox('Select an option:',
+option=st.selectbox('Select an option:',
      ('View of the data','Data size', 'Columns name', 'Data columns types', 'Duplicates',
       'Missing values', 'Percentages of missing values', 'Zeros values per column', 
       'Summarization of the data (Numerical variables)', 
       'Summarization of the data (Categorical variables)' ))
-    
-    st.write("""
+st.write("""
              #### Results:
-             """)       
+             """)   
+try:
+    if uploaded_file is not None:
+         df = pd.read_csv(uploaded_file)
+              
     
     
                 
