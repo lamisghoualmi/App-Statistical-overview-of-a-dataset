@@ -5,15 +5,9 @@ Created on Thu Jun 23 13:33:59 2022
 @author: Benk
 """
 import streamlit as st
-# import polars as pl
 import numpy as np
 import pandas  as pd
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from sklearn import preprocessing
-import pickle
-from sklearn.linear_model import LogisticRegression
-from annotated_text import annotated_text
+
 
 
 # streamlit run "C:\Users\Benk\Desktop\Kaggle, Maven dataset\MarketingData-Maven\DataOverViewApp.py"
