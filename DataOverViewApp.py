@@ -13,7 +13,7 @@ import pandas  as pd
 # streamlit run "C:\Users\Benk\Desktop\Kaggle, Maven dataset\MarketingData-Maven\DataOverViewApp.py"
 
 st.header('Statistical description of a dataset')
-# st.sidebar.image("StatisticOverView.png", use_column_width=True)
+st.sidebar.image("StatisticOverView.png", use_column_width=True)
 st.sidebar.write("""
         Data analysis follows a rigorous step-by-step process in order to make
         informed decisions. It is very important to have a descriptive statistics overview
