@@ -20,7 +20,8 @@ st.sidebar.write("""
         of the data before starting the analysis. This app helps you get
         a clear vision of what steps should you take to clean your data. 
         Such as the necessity of removing duplicates, missing values, outliers, 
-        etc.
+        etc. f you are interested to check my code, check my github using 
+        the following link: [Github](https://github.com/lamisghoualmi/App-Statistics-overview-of-a-dataset).
          """)
 
 # uploaded_file = st.file_uploader("Choose a dataset (csv file)")
