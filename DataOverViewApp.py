@@ -13,10 +13,10 @@ import pandas  as pd
 # streamlit run "C:\Users\Benk\Desktop\Kaggle, Maven dataset\MarketingData-Maven\DataOverViewApp.py"
 
 st.header('Statistical description of a dataset')
-st.sidebar.image("StatisticOverView.png", use_column_width=True)
+# st.sidebar.image("StatisticOverView.png", use_column_width=True)
 st.sidebar.write("""
         Data analysis follows a rigorous step-by-step process in order to make
-        informed decisions. It is very important to have an overview
+        informed decisions. It is very important to have a descriptive statistics overview
         of the data before starting the analysis. This app helps you get
         a clear vision of what steps should you take to clean your data. 
         Such as the necessity of removing duplicates, missing values, outliers, 
@@ -68,22 +68,31 @@ try:
      st.write( duplicateObser.shape[0])
      
     if option=='Missing values': 
+     try:
         st.caption('Missing values. Depending on the number of missing values,',
                    'you can decide which technique you need to get rid of missing values. Example: removing missing values or applying an amputation technique')
         st.write(df.isnull().sum())
+     except:
+       st.write( 'This dataset does not missing values')
     
     if option=='Percentages of missing values': 
+     try:
         st.caption('Percentages of missing valuesDepending on the number of missing values,',
                    'you can decide which technique you need to get rid of missing values. Example: removing missing values or applying an amputation technique')
         for col in df.columns:
             PercentageMissing = np.mean(df[col].isnull())
             # print('{} - {}%'.format(col, round(PercentageMissing *100)))
             st.write('{} : {}%'.format(col, round(PercentageMissing *100)))
+     except:
+       st.write( 'This dataset does not missing values')
     
-    if option=='Zeros values per column': 
+    if option=='Zeros values per column':
+     try:
         st.caption('Zeros values per column')
         zero_val = (df == 0.00).astype(int).sum(axis=0)
         st.write(zero_val)
+     except:
+        st.write( 'This dataset does not zero values')
         
     if option=='Summarization of the data (Numerical variables)': 
         try:
