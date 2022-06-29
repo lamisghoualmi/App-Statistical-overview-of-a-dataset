@@ -1,4 +1,4 @@
-# App-Statistics-overview-of-a-dataset
+# App-Statistical-overview-of-a-dataset
 Data analysis follows a rigorous step-by-step process in order to make
         informed decisions. It is very important to have a descriptive statistics overview
         of the data before starting the analysis. This app helps you get
