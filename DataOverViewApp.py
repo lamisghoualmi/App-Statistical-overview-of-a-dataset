@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jun 23 13:33:59 2022
-
 @author: Benk
 """
 import streamlit as st
@@ -13,15 +12,14 @@ import pandas  as pd
 # streamlit run "C:\Users\Benk\Desktop\Kaggle, Maven dataset\MarketingData-Maven\DataOverViewApp.py"
 
 st.header('Statistical description of a dataset')
-st.sidebar.image("StatisticOverView.png", use_column_width=True)
+st.sidebar.image("AppStatOverView.png", use_column_width=True)
 st.sidebar.write("""
-        Data analysis follows a rigorous step-by-step process in order to make
-        informed decisions. It is very important to have a descriptive statistics overview
-        of the data before starting the analysis. This app helps you get
-        a clear vision of what steps should you take to clean your data. 
-        Such as the necessity of removing duplicates, missing values, outliers, 
-        etc. If you are interested to check my code, check my github using 
-        the following link: [Github](https://github.com/lamisghoualmi/App-Statistics-overview-of-a-dataset).
+        Making informed decisions requires a meticulous, step-by-step process of data analysis. 
+        Before beginning the analysis, it is crucial to take a look at the descriptive statistical overview 
+        of the dataset. This app helps you to get  a clear idea of the measures you need to  take to clean your data.
+For instance, spelling mistakes correction,  duplicates, missing values, variables with low variance, outliers, etc.
+ If you are interested to check my code, check my github using 
+        the following link: [Github](https://github.com/lamisghoualmi/-App-Statistical-overview-of-a-dataset).
          """)
 
 # uploaded_file = st.file_uploader("Choose a dataset (csv file)")
@@ -69,22 +67,22 @@ try:
      
     if option=='Missing values': 
      try:
-        st.caption('Missing values. Depending on the number of missing values,',
-                   'you can decide which technique you need to get rid of missing values. Example: removing missing values or applying an amputation technique')
+        st.caption(' The number of missing values per column helps decide which technique you need to get rid of missing values. Example: removing missing values or applying an amputation technique to replace those missing values.')
+                   
         st.write(df.isnull().sum())
      except:
-       st.write( 'This dataset does not missing values')
+       st.write( 'There are no missing values in this dataset.')
     
     if option=='Percentages of missing values': 
      try:
-        st.caption('Percentages of missing valuesDepending on the number of missing values,',
-                   'you can decide which technique you need to get rid of missing values. Example: removing missing values or applying an amputation technique')
+        st.caption('Percentages of missing values helps decide which technique you need to get rid of missing values. Example: removing missing values or applying an amputation technique to replace those missing values.')
+                   
         for col in df.columns:
             PercentageMissing = np.mean(df[col].isnull())
             # print('{} - {}%'.format(col, round(PercentageMissing *100)))
             st.write('{} : {}%'.format(col, round(PercentageMissing *100)))
      except:
-       st.write( 'This dataset does not missing values')
+       st.write( 'There are no missing values in this dataset.')
     
     if option=='Zeros values per column':
      try:
@@ -92,20 +90,20 @@ try:
         zero_val = (df == 0.00).astype(int).sum(axis=0)
         st.write(zero_val)
      except:
-        st.write( 'This dataset does not zero values')
+        st.write( 'There are no zero values in this dataset.')
         
     if option=='Summarization of the data (Numerical variables)': 
         try:
-         st.caption('Summarization of the data (Numerical variables). You can check for the variables that might have outliers by analyzing the min, mean and max of each variable')
+         st.caption('Summarization of the data (Numerical variables). By examining each variable  minimum, maximum, and average values, you can look for variables that potentially contain outliers.')
          st.write(df.describe())
         except:
-         st.write( 'This dataset does not contain numerical variables')
+         st.write( 'Numerical variables are not present in this dataset.')
         
          
     if option=='Summarization of the data (Categorical variables)': 
       try:
-        st.caption('Summarization of the data (Categorical variables). This can helps you know if there is a bias in the population and also might help you correct the categories.', 
-                   'Example: user who entered SINGLE or ALONE, the information belong to the same category wich is SINGLE')
+        st.caption('You can use this to determine whether the population is biased and to possibly fix the categories error if any. For instance, if a user entered SINGLE and another one entered  ALONE, the information would fall under the same category, SINGLE. So, this kind of error has to be addressed before starting the analysis.')
+                   
         cols = df.columns
         num_cols = df._get_numeric_data().columns
         Categ_cols=list(set(cols) - set(num_cols))
@@ -116,6 +114,6 @@ try:
          st.write('Unique values',df[Categ_cols[i]].unique())
          st.write('Number of unique values', df[Categ_cols[i]].nunique())
       except:
-         st.write( 'This dataset does not contain categorical variables')
+         st.write( 'There are no categorical variables in this dataset.')
 except:     
  st.write( 'Please, load a dataset as a CSV file')
